@@ -1,14 +1,20 @@
-from parse.main_parser import Parser
+from parse.main_parser import Parser, SubParser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Chrome
 from time import sleep
+from selenium.webdriver.common.action_chains import ActionChains
+from .muztorg_sub_parser import MuztorgSubParser
 
 
 class MuztorgParser(Parser):
     start_url = "https://www.muztorg.ru/"
+    name = "muztorg"
+    categories_and_queries = {"guitar": "Электрогитары", "bass": "бас гитара"}
+    sub_parser = MuztorgSubParser
+
 
     def _prepare(self):
         wait = WebDriverWait(self._driver, 10)

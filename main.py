@@ -1,8 +1,13 @@
 from parse.muztrog.muztorg import MuztorgParser
 from selenium import webdriver
-from parse.muztrog.guitar import GuitarParser
+from parse.db_worker import DBWorker
 
 
-driver = webdriver.Chrome()
-mp = MuztorgParser(driver, {"guitar": GuitarParser(driver)})
-mp.run(["guitar"])
+opt = webdriver.ChromeOptions()
+# opt.add_argument("--headless=new")
+opt.add_argument("--window-size=1920,1080")
+driver = webdriver.Chrome(opt)
+mp = MuztorgParser(driver, DBWorker("data.db"))
+stats = mp.run(["bass"])
+
+print(stats)
