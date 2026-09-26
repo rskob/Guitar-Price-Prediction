@@ -7,6 +7,11 @@ class DBWorker:
         self.__db_name = db_name
         self.__connect()
         self.__init_db()
+        # with self.__conn:
+        #     self.__conn.execute("DELETE FROM raw_data WHERE shop_name == 'Мир музыки'")
+        # self.clear()
+        # raise ValueError()
+
 
     def __connect(self):
         self.__conn = sqlite3.connect(self.__db_name)
