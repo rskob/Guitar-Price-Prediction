@@ -1,4 +1,4 @@
-from parse import MuztorgParser, GuitarClubParser, DBWorker, MIRMParser, SkifMusicParser
+from parse import MuztorgParser, GuitarClubParser, DBWorker, MIRMParser, SkifMusicParser, DominantaMusicParser, MusikRoomParser, MusicMarketParser
 from time import sleep
 from parse.main_parser import Parser
 from selenium.webdriver.common.by import By
@@ -16,13 +16,17 @@ opt = webdriver.ChromeOptions()
 opt.add_argument("--headless=new")
 opt.add_argument("--window-size=1920,1080")
 opt.add_argument("--start-maximized")
+
 driver = webdriver.Chrome(opt)
 db =  DBWorker("data.db")
 mp = MuztorgParser(driver, db)
 gp = GuitarClubParser(driver, db)
 mrp = MIRMParser(driver, db)
 mzp = SkifMusicParser(driver, db)
+dp = DominantaMusicParser(driver, db)
+mp = MusikRoomParser(driver, db)
+mr = MusicMarketParser(driver, db)
 
-for i in (mzp, ):
+for i in (mr, ):
     res = i.run(["guitar"])
     print(res)

@@ -16,7 +16,6 @@ class SkifMusicParser(Parser):
 
         hrefs = []
         while True:
-            print(c)
             articles = self._driver.find_elements(By.CLASS_NAME, "product-card__image")
 
             for art in articles:
