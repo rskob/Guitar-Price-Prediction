@@ -7,10 +7,6 @@ class DBWorker:
         self.__db_name = db_name
         self.__connect()
         self.__init_db()
-        # with self.__conn:
-        #     self.__conn.execute("DELETE FROM raw_data WHERE shop_name == 'Мир музыки'")
-        # self.clear()
-        # raise ValueError()
 
 
     def __connect(self):
@@ -34,8 +30,3 @@ class DBWorker:
         with self.__conn:
             cur = self.__conn.execute(query, (shop_name, category, url, json_str))
             return cur.rowcount   
-
-    def clear(self):
-        with self.__conn:
-            self.__conn.execute("DELETE FROM raw_data;")
-            self.__conn.execute("DELETE FROM sqlite_sequence WHERE name = 'raw_data';") 

@@ -5,3 +5,7 @@ from .skifmusic import SkifMusicParser
 from .dominanta_music import DominantaMusicParser
 from .musik_room import MusikRoomParser
 from .music_market import MusicMarketParser
+from .guitar_lavka import GuitarLavkaParser
+from .shop_avallon import ShopAvallonParser
+from .mir_guitar import MirGuitarParser
+from .legato import LegatoParser
